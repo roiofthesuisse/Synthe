@@ -44,8 +44,6 @@ public class Enveloppe {
 				avancement = (double) (i-this.dureeAttaque-this.dureeDeclin-this.dureeSoutien) / (double) this.dureeRelachement;
 				resultat[i] = (int) (transition(hauteurSoutien, 0d, avancement) * son[i]);
 			}
-			resultat[i] = son[i];
-				
 		}
 		return resultat;
 	}
