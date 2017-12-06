@@ -29,18 +29,18 @@ public class Enveloppe {
 		for (int i=0; i<son.length; i++) {
 			double avancement;
 			if (i<this.dureeAttaque) {
-				//attaque
+				// Attaque
 				avancement = (double) i / (double) this.dureeAttaque;
 				resultat[i] = (int) (transition(0d, 1d, avancement) * son[i]);
 			} else if (i < this.dureeAttaque+this.dureeDeclin) {
-				//declin
+				// Declin
 				avancement = (double) (i-this.dureeAttaque) / (double) this.dureeDeclin;
 				resultat[i] = (int) (transition(1d, hauteurSoutien, avancement) * son[i]);
 			} else if (i < this.dureeAttaque+this.dureeDeclin+this.dureeSoutien) {
-				//soutien
+				// Soutien
 				resultat[i] = (int) (hauteurSoutien * son[i]);
 			} else {
-				// relachement
+				// Relachement
 				avancement = (double) (i-this.dureeAttaque-this.dureeDeclin-this.dureeSoutien) / (double) this.dureeRelachement;
 				resultat[i] = (int) (transition(hauteurSoutien, 0d, avancement) * son[i]);
 			}
